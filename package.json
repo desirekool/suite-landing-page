@@ -1,0 +1,30 @@
+{
+  "name": "suite-landing-page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "homepage": "http://desirekool.github.io/suite-landing-page",
+  "scripts": {
+    "prebuild:css": "node-sass --output-style=expanded --source-map=true scss/index.scss  css/index.css",
+    "build:css": "postcss css/index.css --use=autoprefixer --map=false  --output=css/index.css &&  postcss css/index.css --use=cssnano  --output=css/index.min.css",
+    "build": "npm run build:css",
+    "copy": "cpy index.html public && cpy assets public && cpy css public",
+    "predeploy": "npm run build  && npm run copy",
+    "deploy": "gh-pages -d build",
+    "build:watch": "watch 'npm run build'",
+    "sass": "node-sass -w scss/ -o css/ --recursive"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.4",
+    "clean-css": "^5.2.4",
+    "clean-css-cli": "^5.5.2",
+    "cpy-cli": "^4.1.0",
+    "cssnano": "^5.1.5",
+    "node-sass": "^7.0.1",
+    "postcss": "^8.4.12",
+    "postcss-cli": "^9.1.0",
+    "watch": "^1.0.2"
+  }
+}
