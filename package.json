@@ -4,12 +4,13 @@
   "description": "",
   "homepage": "http://desirekool.github.io/suite-landing-page",
   "scripts": {
-    "start": "parcel ./src/index.html",
-    "prebuild-dev": "shx rm -rf dist/*",
-    "build-dev": "parcel build ./src/index.html --no-optimize --public-url ./",
-    "prebuild": "shx rm -rf dist/*",
-    "build": "parcel build ./src/index.html --public-url ./",
-    "push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
+    "start": "parcel ./index.html",
+    "prebuild-dev": "shx rm -rf docs/*",
+    "build-dev": "parcel build ./index.html --no-optimize --public-url ./docs",
+    "prebuild": "shx rm -rf docs/*",
+    "build": "parcel build ./index.html --public-url ./docs",
+    "push-gh-pages": "push-dir --dir=docs --branch=gh-pages --cleanup --verbose",
+    "deploy": "gh-pages -d docs"
   },
   "author": "",
   "license": "ISC",
